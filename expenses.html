@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <title>Budget Buddy</title>
+  </head>
+  <body>
+    <header id="header2">
+      <h1>Budget Buddy</h1>
+    </header>
+
+    <main>
+      <section id="income-input">
+        <h2>Monthly Income</h2>
+        <form>
+          <div>
+            <label for="income-frequency">Income Frequency:</label>
+            <select id="income-frequency">
+              <option value="monthly">Monthly</option>
+              <option value="biweekly">Bi-weekly</option>
+              <option value="weekly">Weekly</option>
+            </select>
+          </div>
+          <div>
+            <label for="province">Province:</label>
+            <select id="province" required>
+              <option value="">Select Province</option>
+              <option value="AB">Alberta</option>
+              <option value="BC">British Columbia</option>
+              <option value="MB">Manitoba</option>
+              <option value="NB">New Brunswick</option>
+              <option value="NL">Newfoundland and Labrador</option>
+              <option value="NS">Nova Scotia</option>
+              <option value="ON">Ontario</option>
+              <option value="PE">Prince Edward Island</option>
+              <option value="QC">Quebec</option>
+              <option value="SK">Saskatchewan</option>
+              <option value="NT">Northwest Territories</option>
+              <option value="NU">Nunavut</option>
+              <option value="YT">Yukon</option>
+            </select>
+          </div>
+          <div>
+            <label for="income-amount">Enter your income:</label>
+            <input
+              type="number"
+              id="income-amount"
+              name="income-amount"
+              step="0.01"
+              required
+            />
+          </div>
+          <div>
+            <button type="submit">Save</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="container">
+        <section id="expense-input">
+          <h2>Add Expense</h2>
+          <form id="expense-input">
+            <div>
+              <label for="expense-category">Category:</label>
+              <select id="expense-category">
+                <option value="food">Food</option>
+                <option value="transportation">Transportation</option>
+                <option value="utilities">Utilities</option>
+                <option value="mortgage/rent">Mortgage or Rent</option>
+                <option value="cell phone">Cell Phone</option>
+                <option value="personal upkeep">Personal Upkeep</option>
+                <option value="Subscriptions">Subscriptions</option>
+                <option value="Investments & Savings">
+                  Investments & Savings
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <label for="expense-amount">Amount:</label>
+              <input type="number" id="expense-amount" step="0.01" required />
+            </div>
+            <div>
+              <label for="expense-date">Date:</label>
+              <input type="date" id="expense-date" required />
+            </div>
+
+            <div>
+              <label for="expense-frequency">Payment Frequency:</label>
+              <input
+                type="radio"
+                id="monthly-payment"
+                name="expense-frequency"
+                value="monthly"
+                checked
+              />
+              <label for="monthly-payment">Monthly</label>
+              <input
+                type="radio"
+                id="weekly-payment"
+                name="expense-frequency"
+                value="weekly"
+              />
+              <label for="weekly-payment">Weekly</label>
+            </div>
+            <div>
+              <button type="submit">Add Expense</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="debt-input">
+          <h2>Add Debt</h2>
+          <form id="debt-input">
+            <div>
+              <label for="debt-description">Description:</label>
+              <input type="text" id="debt-description" required />
+            </div>
+            <div>
+              <label for="debt-amount">Debt Amount:</label>
+              <input type="number" id="debt-amount" step="0.01" required />
+            </div>
+
+            <div>
+              <label for="payoff-period">Payoff Period:</label>
+              <input type="number" id="payoff-period" required />
+            </div>
+            <div id="payment-frequent">
+              <label for="payment-frequency">Payment Frequency:</label>
+              <input
+                type="radio"
+                id="monthly"
+                name="payment-frequency"
+                value="monthly"
+                checked
+              />
+              <label for="monthly">Monthly</label>
+              <input
+                type="radio"
+                id="weekly"
+                name="payment-frequency"
+                value="weekly"
+              />
+              <label for="weekly">Weekly</label>
+            </div>
+            <div>
+              <button type="submit">Add Debt</button>
+            </div>
+          </form>
+        </section>
+      </section>
+
+      <section id="budget-summary">
+        <h2>Budget Summary</h2>
+        <div id="income-remaining">
+          <h3>Income Remaining:</h3>
+          <p>$0.00</p>
+          <div id="debt-payment">
+            <h3>Debt Payment Required:</h3>
+            <p>$0.00</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="expense-list">
+        <h2>Expense List</h2>
+        <ul>
+          <!-- Expense list items here -->
+        </ul>
+      </section>
+      <section id="debt-list">
+        <h2>Debt List</h2>
+        <ul>
+          <!-- Debt list items here -->
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Budget Buddy</p>
+    </footer>
+    <script src="./public/js/script.js"></script>
+  </body>
+</html>
