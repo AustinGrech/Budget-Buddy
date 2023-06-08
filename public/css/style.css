@@ -125,4 +125,14 @@ footer {
 #income-amount {
   width: 900px;
 }
+
+#payment-frequent {
+  display: flex;
+  align-items: center;
+}
+
+#expense-frequent {
+  display: flex;
+  align-items: center;
+}
 /* Additional styles for expense list items and other elements can be added as needed */
