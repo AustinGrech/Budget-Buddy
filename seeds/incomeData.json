@@ -1,0 +1,33 @@
+[
+    {
+      "frequency": "Monthly",
+      "incomeAmount": 5000,
+      "province": "California",
+      "userId": 1
+    },
+    {
+      "frequency": "Weekly",
+      "incomeAmount": 2000,
+      "province": "New York",
+      "userId": 2
+    },
+    {
+      "frequency": "Monthly",
+      "incomeAmount": 3000,
+      "province": "Texas",
+      "userId": 3
+    },
+    {
+      "frequency": "Monthly",
+      "incomeAmount": 4000,
+      "province": "Florida",
+      "userId": 4
+    },
+    {
+      "frequency": "Bi-Weekly",
+      "incomeAmount": 2500,
+      "province": "California",
+      "userId": 5
+    }
+  ]
+  
