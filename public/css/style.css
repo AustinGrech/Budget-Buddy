@@ -86,7 +86,7 @@ button {
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: number;
   padding: 0;
 }
 
@@ -134,5 +134,10 @@ footer {
 #expense-frequent {
   display: flex;
   align-items: center;
+}
+
+li {
+  padding-top: 10px;
+  margin-left: 20px;
 }
 /* Additional styles for expense list items and other elements can be added as needed */
