@@ -156,6 +156,14 @@ function renderExpense(expense) {
 // Function to render a debt item
 function renderDebt(debt) {
   const listItem = document.createElement("li");
+  const itemContent = `
+    <span>Description: ${debt.description}</span>
+    <span>Amount: $${debt.amount.toFixed(2)}</span>
+    <span>Payoff gPeriod: ${debt.payoffPeriod} months</span>
+    <span>Payment Frequency: ${debt.paymentFrequency}</span>
+    <span>Debt Payment Required: $${debt.debtPayment.toFixed(2)}</span>
+  `;
+  listItem.innerHTML = itemContent;
   listItem.textContent = `${debt.description}: $${debt.amount} (${debt.paymentFrequency} - ${debt.payoffPeriod} payments of ${debt.debtPayment})`;
   debtList.appendChild(listItem);
 }
