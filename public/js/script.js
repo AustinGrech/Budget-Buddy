@@ -8,7 +8,7 @@ const expenseForm = document.querySelector("#expense-input form");
 const expenseList = document.querySelector("#expense-list ul");
 const debtForm = document.querySelector("#debt-input form");
 const debtList = document.querySelector("#debt-list ul");
-const debtPayment = document.querySelector("#debt-payment p");
+const debtPaymentElement = document.querySelector("#debt-payment p");
 
 let monthlyIncome = 0;
 let expenses = [];
@@ -18,10 +18,6 @@ let debts = [];
 incomeForm.addEventListener("submit", handleIncomeSubmit);
 expenseForm.addEventListener("submit", handleExpenseSubmit);
 debtForm.addEventListener("submit", handleDebtSubmit);
-
-// Function to handle income submission
-// Event listeners
-incomeForm.addEventListener("submit", handleIncomeSubmit);
 
 // Function to handle income submission
 function handleIncomeSubmit(event) {
@@ -88,14 +84,17 @@ function handleDebtSubmit(event) {
   ).value;
 
   const modifiedDebtAmount = adjustDebtAmount(debtAmount, paymentFrequency);
-  const debtPayment = calculateDebtPayment(modifiedDebtAmount, payoffPeriod);
+  const calculatedDebtPayment = calculateDebtPayment(
+    modifiedDebtAmount,
+    payoffPeriod
+  );
 
   const debt = {
     description: debtDescription,
     amount: modifiedDebtAmount,
     payoffPeriod: payoffPeriod,
     paymentFrequency: paymentFrequency,
-    debtPayment: debtPayment,
+    debtPayment: calculatedDebtPayment,
   };
 
   debts.push(debt);
@@ -108,43 +107,53 @@ function handleDebtSubmit(event) {
 function adjustDebtAmount(debtAmount, paymentFrequency) {
   if (paymentFrequency === "weekly") {
     return debtAmount * 4.3;
-  } else {
-    return debtAmount;
   }
+  return debtAmount;
 }
 
 // Function to calculate the debt payment required
 function calculateDebtPayment(debtAmount, payoffPeriod) {
-  return debtAmount / payoffPeriod;
+  const debtPayment = debtAmount / payoffPeriod;
+  return Math.round(debtPayment * 100) / 100; // Round to two decimal places
 }
 
-// Function to calculate income remaining
+// Function to calculate income remaining after deducting expenses and debt payment
 function calculateIncomeRemaining() {
-  const totalExpenses = expenses.reduce(
-    (sum, expense) => sum + expense.amount,
-    0
-  );
-  const totalDebtPayment = debts.reduce(
-    (sum, debt) => sum + debt.debtPayment,
-    0
-  );
-  const remaining = monthlyIncome - totalExpenses - totalDebtPayment;
-  incomeRemaining.textContent = "$" + remaining.toFixed(2);
+  const totalExpenses = calculateTotalExpenses();
+  const totalDebtPayment = calculateTotalDebtPayment();
+
+  const incomeRemainingAmount =
+    monthlyIncome - totalExpenses - totalDebtPayment;
+  incomeRemaining.textContent = `$${incomeRemainingAmount}`;
+  debtPaymentElement.textContent = `$${totalDebtPayment}`;
 }
 
-// Function to render expense item
+// Function to calculate the total expenses
+function calculateTotalExpenses() {
+  let total = 0;
+  for (const expense of expenses) {
+    total += expense.amount;
+  }
+  return total;
+}
+
+// Function to calculate the total debt payment
+function calculateTotalDebtPayment() {
+  let total = 0;
+  for (const debt of debts) {
+    total += debt.debtPayment;
+  }
+  return total;
+}
+
+// Function to render an expense item
 function renderExpense(expense) {
   const listItem = document.createElement("li");
-  const itemContent = `
-    <span>Date: ${expense.date}</span>
-    <span>Amount: $${expense.amount.toFixed(2)}</span>
-    <span>Category: ${expense.category}</span>
-  `;
-  listItem.innerHTML = itemContent;
+  listItem.textContent = `${expense.category}: $${expense.amount} (${expense.date})`;
   expenseList.appendChild(listItem);
 }
 
-// Function to render debt item
+// Function to render a debt item
 function renderDebt(debt) {
   const listItem = document.createElement("li");
   const itemContent = `
@@ -155,5 +164,6 @@ function renderDebt(debt) {
     <span>Debt Payment Required: $${debt.debtPayment.toFixed(2)}</span>
   `;
   listItem.innerHTML = itemContent;
+  listItem.textContent = `${debt.description}: $${debt.amount} (${debt.paymentFrequency} - ${debt.payoffPeriod} payments of ${debt.debtPayment})`;
   debtList.appendChild(listItem);
 }
