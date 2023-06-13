@@ -124,8 +124,8 @@ function calculateIncomeRemaining() {
 
   const incomeRemainingAmount =
     monthlyIncome - totalExpenses - totalDebtPayment;
-  incomeRemaining.textContent = incomeRemainingAmount;
-  debtPaymentElement.textContent = totalDebtPayment;
+  incomeRemaining.textContent = `$${incomeRemainingAmount}`;
+  debtPaymentElement.textContent = `$${totalDebtPayment}`;
 }
 
 // Function to calculate the total expenses
@@ -159,7 +159,7 @@ function renderDebt(debt) {
   const itemContent = `
     <span>Description: ${debt.description}</span>
     <span>Amount: $${debt.amount.toFixed(2)}</span>
-    <span>Payoff gPeriod: ${debt.payoffPeriod} months</span>
+    <span>Payoff Period: ${debt.payoffPeriod} months</span>
     <span>Payment Frequency: ${debt.paymentFrequency}</span>
     <span>Debt Payment Required: $${debt.debtPayment.toFixed(2)}</span>
   `;
