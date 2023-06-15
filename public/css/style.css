@@ -1,12 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+* {
+  font-family: 'Permanent Marker', cursive;
+}
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+text-align: center;
+ /* font-size: 22px; */
+  /* color:rgb(214, 51, 132); */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: center;
+    
+    opacity: 0.93.5;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), url("../Images/How-Does-Budgeting-Help-You-Save-Money.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 110% auto;
+}
+
+.a.navbar-brand{
+  font-size: 50px;
+  margin-top: 5px;
+}
+
+a {
+  color: black;
 }
 
 #header1 {
-  background-color: #333;
-  color: #fff;
+  /* border: 2px solid rgb(10, 167, 175);
+  border-radius: 25px;
+  border-width: 6.5px; */
+  font-size: 18px;
+  background-color: lightgoldenrodyellow;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-shadow: inset;
+  color: black;
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -37,13 +67,6 @@ label {
   display: block;
 }
 
-#container {
-  display: flex;
-  justify-content: space-between;
-  width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 #income-input {
   width: 900px;
@@ -60,13 +83,14 @@ label {
 select {
   width: 420px;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  /* border: 1px solid #ccc;
+  border-radius: 4px; */
 }
 
 #province {
   width: 920px;
 }
+
 input,
 textarea {
   width: 100%;
@@ -76,13 +100,18 @@ textarea {
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+  color:black;
+  padding: 5px;
+   font-size: 34px;
+  background-color: lightgoldenrodyellow;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-shadow: inset;
+  
+  border-radius: 25px;
   cursor: pointer;
-  width: 200px;
+  width: 125px;
+  font-size: 35px;
 }
 
 ul {
@@ -91,13 +120,24 @@ ul {
 }
 
 footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
+ font-family: 'Permanent Marker';
+  margin-top: 10%;
+  background-color: lightyellow;
+  border: 8px solid black;
+  border-radius: 5px;
+  border-width: 6.5px; 
+  box-shadow: 5px 5px 5px 5px black;
+  width: 27.5vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+
+ 
 }
 
-/* Additional Styles */
+footer.h1{
+  font-family: 'Permanent Marker';
+}
 
 #income-remaining {
   background-color: #f1f1f1;
@@ -138,6 +178,141 @@ footer {
 
 li {
   padding-top: 10px;
-  margin-left: 20px;
+  margin-left: 15px;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+  background-color:rgb(10, 167, 175)!important;
+}
+.navbar-inverse .navbar-nav>li>a{
+  color:black!important;
+  font-size:20px
+}
+.navbar-inverse .navbar-toggle{
+  border: 2px solid rgb(10, 167, 175)!important;
+}
+.navigationMenu{
+  color:black;
+  font-family: 'Permanent Marker';
+  background-color: lightgoldenrodyellow!important;
+}
+
+#headTitle{
+  color: black ;
+  margin-top: 10px;                
+  font-size: 55px;
+}
+
+
+.container1,
+.container2,
+.container3 {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  
+}
+
+.container1 {
+  margin-bottom: 0;
+}
+
+.personal {
+  margin: 20px;
+}
+
+.personal h2 {
+  border: 8px solid black;
+  border-radius: 5px;
+  border-width: 6.5px; 
+}
+
+.personal p {
+  border: 8px solid black;
+  border-radius: 5px;
+  border-width: 6.5px; 
+}
+
+.cta-button{
+
+  font-family: 'Permanent Marker';
+  margin-top: 10%;
+  background-color: lightyellow;
+  border: 8px solid black;
+  border-radius: -20%;
+  border-width: 6.5px; 
+  box-shadow: 5px 5px 5px black;
+  
+  color:black;
+ 
+  font-size: 52px;
+  width: 900px;
+  height: 400px;
+  
+}
+
+.cta-button:hover {
+  width: 900px;
+  height: 400px;
+}
+
+
+cite {
+  background-color: lightgoldenrodyellow;
+  font-size: 20px;
+  padding: -.2em; 
+  margin-top: 40px; 
+  margin-bottom: 40px; 
+  border: 2px solid black;
+  border-radius: 5px; 
+  border-width: 6.5px;  
+}
+
+h2{
+
+ font-family: 'Permanent Marker';
+  background-color: lightyellow;
+  border: 8px solid black;
+  border-radius: -20%;
+  border-width: 6.5px; 
+  box-shadow: 5px 5px 5px black;
+  color:black;
+  padding: 5px;
+  font-size: 34px;
+  background-color: lightgoldenrodyellow;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
+ 
+
+p{
+  color:black;
+  padding: 5px;
+  
+  font-size: 30px;
+  background-color: lightyellow;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  box-shadow: inset;
+  border: 2px solid black;
+  border-radius: 5px;
+  border-width: 6.5px; 
+}
+
+
+h3{
+  color:black;
+  padding: 5px;
+ 
+  font-size: 34px;
+  background-color: lightgoldenrodyellow;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  box-shadow: inset;
+
 }
 /* Additional styles for expense list items and other elements can be added as needed */
