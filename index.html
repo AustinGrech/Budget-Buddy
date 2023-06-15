@@ -6,57 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Budget Buddy - Your Personal Expense Tracker</title>
     <link rel="stylesheet" href="./public/css/style.css" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
       /* Your custom CSS styles here */
+      
+  blockquote {
+    border-left: none !important;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+
+
     </style>
   </head>
   <body>
-    <header id="header1">
-      <h1>Budget Buddy</h1>
-      <button>Login</button>
-    </header>
-
+    <header>
+    <nav class="navbar navbar-inverse navigationMenu">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a id= headTitle color class="navbar-brand" href="expenses.html">Budget Buddy</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+    
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
     <main>
       <section id="hero">
-        <div class="container">
-          <h2>Your Personal Expense Tracker</h2>
-          <p>
-            Take control of your finances and track your expenses effortlessly
-            with Budget Buddy. Whether you're saving for a specific goal or
-            simply want to manage your spending, Budget Buddy helps you stay on
-            top of your finances.
-          </p>
-          <a href="./expenses.html" class="cta-button">Get Started</a>
+      <div class="container1">
+      <div class="personal">
+        <h2>Your Personal Expense Tracker</h2>
+       <p>
+          Take control of your finances and track your expenses effortlessly
+          with Budget Buddy. Whether you're saving for a specific goal or
+          simply want to manage your spending, Budget Buddy helps you stay on
+          top of your finances.
+        </p>
         </div>
+        <div class="personal">
+          
+          <h2>Budget Management</h2> 
+          <p>
+           Set monthly budgets for different expense categories and stay
+           within your financial limits. Budget Buddy helps you allocate your
+           income effectively.
+         </p> 
+       </div>
+      </div>
+      
+        <div class="container2">
+          <div>
+            <button class="cta-button">
+              <span class="btnText">Start Budgeting Today!</span>
+            </button>
+          </div>
+          </div>
+          <div class="container3">
+          <div class="personal">
+            <h2>Expense Tracking</h2> 
+            <p>
+             Track and categorize your expenses in real-time. Get a clear
+             overview of your spending habits and identify areas where you can
+             save.
+           </p> 
+         </div>
+          <div class="personal">
+          <h2>Goal Tracking</h2>
+         <p>
+           Define savings goals and track your progress over time. Whether
+           it's a vacation, a new car, or an emergency fund, Budget Buddy
+           helps you achieve your financial targets.
+         </p> 
+       </div>
+      </div>
+
       </section>
 
       <section id="features">
         <div class="container">
-          <h2>Key Features</h2>
-          <div class="feature">
-            <h3>Expense Tracking</h3>
-            <p>
-              Track and categorize your expenses in real-time. Get a clear
-              overview of your spending habits and identify areas where you can
-              save.
-            </p>
-          </div>
-          <div class="feature">
-            <h3>Budget Management</h3>
-            <p>
-              Set monthly budgets for different expense categories and stay
-              within your financial limits. Budget Buddy helps you allocate your
-              income effectively.
-            </p>
-          </div>
-          <div class="feature">
-            <h3>Goal Tracking</h3>
-            <p>
-              Define savings goals and track your progress over time. Whether
-              it's a vacation, a new car, or an emergency fund, Budget Buddy
-              helps you achieve your financial targets.
-            </p>
-          </div>
+          <!-- <h2>Key Features</h2> -->
+        
         </div>
       </section>
 
@@ -72,11 +114,11 @@
                 habits.
               </p>
               <cite>John Doe</cite>
-            </blockquote>
+            </blockquote id= infoSquare4>
           </div>
           <div class="testimonial">
             <blockquote>
-              <p>
+               <p>
                 I highly recommend Budget Buddy to anyone looking to take
                 control of their finances. It's been an invaluable tool in
                 helping me stay on budget and reach my financial goals. Plus,
@@ -90,7 +132,11 @@
     </main>
 
     <footer>
-      <p>&copy; 2023 Budget Buddy</p>
+
+      <h1>&copy; 2023
+        Budget Buddy</h1>
+   
     </footer>
+    <script src="./public/js/csslogic.js"></script>
   </body>
 </html>

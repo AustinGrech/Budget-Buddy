@@ -9,7 +9,6 @@ const expenseList = document.querySelector("#expense-list ul");
 const debtForm = document.querySelector("#debt-input form");
 const debtList = document.querySelector("#debt-list ul");
 const debtPaymentElement = document.querySelector("#debt-payment p");
-
 let monthlyIncome = 0;
 let expenses = [];
 let debts = [];
@@ -40,7 +39,6 @@ function calculateMonthlyGrossIncome(incomeAmount, incomeFrequency) {
   } else if (incomeFrequency === "weekly") {
     monthlyGrossIncome = (incomeAmount * 52) / 12;
   }
-
   return monthlyGrossIncome;
 }
 
@@ -124,8 +122,8 @@ function calculateIncomeRemaining() {
 
   const incomeRemainingAmount =
     monthlyIncome - totalExpenses - totalDebtPayment;
-  incomeRemaining.textContent = `$${incomeRemainingAmount}`;
-  debtPaymentElement.textContent = `$${totalDebtPayment}`;
+  incomeRemaining.textContent = incomeRemainingAmount;
+  debtPaymentElement.textContent = totalDebtPayment;
 }
 
 // Function to calculate the total expenses
@@ -156,14 +154,6 @@ function renderExpense(expense) {
 // Function to render a debt item
 function renderDebt(debt) {
   const listItem = document.createElement("li");
-  const itemContent = `
-    <span>Description: ${debt.description}</span>
-    <span>Amount: $${debt.amount.toFixed(2)}</span>
-    <span>Payoff Period: ${debt.payoffPeriod} months</span>
-    <span>Payment Frequency: ${debt.paymentFrequency}</span>
-    <span>Debt Payment Required: $${debt.debtPayment.toFixed(2)}</span>
-  `;
-  listItem.innerHTML = itemContent;
   listItem.textContent = `${debt.description}: $${debt.amount} (${debt.paymentFrequency} - ${debt.payoffPeriod} payments of ${debt.debtPayment})`;
   debtList.appendChild(listItem);
 }
