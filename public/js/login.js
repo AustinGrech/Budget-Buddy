@@ -1,51 +1,33 @@
-// signup
-const signupForm = async (event) => {
-    event.preventDefault();
-
-    const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-
-    // if all sections are filled, 
-    if (username && email && password) {
-        const response = await fetch('/api/users', {
-            method: 'POST', 
-            body: JSON.stringify({ username, email, password }),
-            headers: { 'Content-Type': 'application/json' }
-        });
-        
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-          alert('Failed to sign up.'); 
-        }
-    }
-};
-
-
-// login
-const loginForm = async (event) => {
-    event.preventDefault();
-
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
-
-    // if all sections are filled,
-    if (email && password) {
-        const response = await fetch('/api/users/login', {
-            method: 'POST',
-            body: JSON.stringify({ email, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-    };
-
+// Handler function for tech talk login form submission
+const TechTalkLoginFormHandler = async (event) => {
+  event.preventDefault();
+  // Get the values of the username and password input fields
+  const username = document
+    .querySelector("#username-tech-talk-login")
+    .value.trim();
+  const password = document
+    .querySelector("#password-tech-talk-login")
+    .value.trim();
+  // If the input fields have values
+  if (username && password) {
+    // Send a POST request to the login endpoint with the input values as JSON data
+    const response = await fetch("/api/users/login", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+      headers: { "Content-Type": "application/json" },
+    });
+    // If the request was successful, redirect to the homepage
     if (response.ok) {
-        document.location.replace('/');
+      document.location.replace("/"); // When successful, load the homepage
     } else {
-        alert('Failed login.');
+      // If the request was unsuccessful, show an alert
+      alert("Failed to log in."); // When unsuccessful, show alert
     }
+  }
 };
 
-document.querySelector('.signup-form').addEventListener('submit', signupForm);
-document.querySelector('.login-form').addEventListener('submit', loginForm);
-
+// Event listener for the tech talk login form
+const techTalkLoginForm = document.querySelector(".tech-talk-login-form");
+if (techTalkLoginForm) {
+  techTalkLoginForm.addEventListener("submit", techTalkLoginFormHandler);
+}

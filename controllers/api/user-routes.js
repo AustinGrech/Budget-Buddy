@@ -3,8 +3,8 @@ const { User } = require('../../models');
 
 // localhost:3001/api/users
 
-// CREATE new user
-router.post('/', async (req, res) => {
+// CREATE new user (Signup)
+router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create({
             username: req.body.username,
