@@ -13,19 +13,40 @@
     <title>Budget Buddy</title>
   </head>
   <body>
-    <header id="header2">
-      <a href="index.html"><h1>Budget Buddy</h1></a>
-      <!-- Nav Bar -->
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="signUp.html"
-            ><span class="glyphicon glyphicon-user"></span> Sign Up</a
-          >
-        </li>
-        <li>
-          <a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-        </li>
-      </ul>
+    <header>
+      <nav class="navbar navbar-inverse navigationMenu">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target="#myNavbar"
+            >
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a id="headTitle" color class="navbar-brand" href="index.html"
+              >Budget Buddy</a
+            >
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="signUp.html"
+                  ><span class="glyphicon glyphicon-user"></span> Sign Up</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><span class="glyphicon glyphicon-log-in"></span> Login</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
@@ -60,7 +81,7 @@
             </select>
           </div>
           <div>
-            <label for="income-amount">Enter your income:</label>
+            <label for="income-amount">Enter your gross income:</label>
             <input
               type="number"
               id="income-amount"
@@ -142,7 +163,12 @@
 
             <div>
               <label for="payoff-period">Payoff Period:</label>
-              <input type="number" id="payoff-period" required />
+              <input
+                type="number"
+                id="payoff-period"
+                required
+                placeholder="How many months? (e.g., 12, 24, 36)"
+              />
             </div>
             <div id="payment-frequent">
               <label for="payment-frequency">Payment Frequency:</label>
