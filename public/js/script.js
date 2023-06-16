@@ -183,8 +183,8 @@ function calculateIncomeRemaining() {
 
   const incomeRemainingAmount =
     monthlyIncome - totalExpenses - totalDebtPayment;
-  incomeRemaining.textContent = incomeRemainingAmount;
-  debtPaymentElement.textContent = totalDebtPayment;
+  incomeRemaining.textContent = `$${incomeRemainingAmount}`;
+  debtPaymentElement.textContent = `$${totalDebtPayment}`;
 }
 
 // Function to calculate the total expenses
