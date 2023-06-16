@@ -11,6 +11,7 @@ const debtForm = document.querySelector("#debt-input form");
 const debtList = document.querySelector("#debt-list ul");
 const debtPaymentElement = document.querySelector("#debt-payment p");
 const provinceSelect = document.querySelector("#province");
+
 let monthlyIncome = 0;
 let expenses = [];
 let debts = [];
@@ -182,8 +183,8 @@ function calculateIncomeRemaining() {
 
   const incomeRemainingAmount =
     monthlyIncome - totalExpenses - totalDebtPayment;
-  incomeRemaining.textContent = `$${incomeRemainingAmount}`;
-  debtPaymentElement.textContent = `$${totalDebtPayment}`;
+  incomeRemaining.textContent = incomeRemainingAmount;
+  debtPaymentElement.textContent = totalDebtPayment;
 }
 
 // Function to calculate the total expenses
