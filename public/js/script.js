@@ -1,4 +1,5 @@
 // Get DOM elements
+// Get DOM elements
 const incomeForm = document.querySelector("#income-input form");
 const incomeAmountInput = document.querySelector("#income-amount");
 const incomeFrequencySelect = document.querySelector("#income-frequency");
@@ -9,24 +10,82 @@ const expenseList = document.querySelector("#expense-list ul");
 const debtForm = document.querySelector("#debt-input form");
 const debtList = document.querySelector("#debt-list ul");
 const debtPaymentElement = document.querySelector("#debt-payment p");
-
+const provinceSelect = document.querySelector("#province");
 let monthlyIncome = 0;
 let expenses = [];
 let debts = [];
+let taxRate = 0; // Declare the taxRate variable
 
 // Event listeners
 incomeForm.addEventListener("submit", handleIncomeSubmit);
 expenseForm.addEventListener("submit", handleExpenseSubmit);
 debtForm.addEventListener("submit", handleDebtSubmit);
 
+// Function to calculate the income after taxes
+function calculateIncomeAfterTaxes(incomeAmount, taxRate) {
+  const taxAmount = incomeAmount * taxRate;
+  const incomeAfterTaxes = incomeAmount - taxAmount;
+  return incomeAfterTaxes.toFixed(2);
+}
+
+// Function to handle income submission
 // Function to handle income submission
 function handleIncomeSubmit(event) {
   event.preventDefault();
-  const incomeAmount = parseFloat(incomeAmountInput.value);
-  const incomeFrequency = incomeFrequencySelect.value;
+  const selectedProvince = provinceSelect.value;
+  console.log("Selected Province:", selectedProvince);
 
-  monthlyIncome = calculateMonthlyGrossIncome(incomeAmount, incomeFrequency);
-  calculateIncomeRemaining();
+  // Make API request to get tax rates
+  fetch(
+    `https://gstrate-cra-arc.api.canada.ca:443/ebci/ghnf/api/ext/v1/rates?province=${selectedProvince}`,
+    {
+      headers: {
+        "user-key": "71ec1637e93a3b328d5f3dbc7a9b4990",
+      },
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      const gstRateProvinceList = data.GstRateProvinceList;
+      const selectedProvinceData = gstRateProvinceList.find(
+        (province) => province.ProvinceCode === selectedProvince
+      );
+
+      if (selectedProvinceData) {
+        const gstRateDatePairList = selectedProvinceData.GstRateDatePairList;
+        const currentDate = new Date(); // Assuming current date
+        const selectedGstRate = gstRateDatePairList.find((ratePair) => {
+          const effectiveDate = new Date(ratePair.EffectiveDate);
+          const expiryDate = ratePair.ExpiryDate
+            ? new Date(ratePair.ExpiryDate)
+            : null;
+          return (
+            effectiveDate <= currentDate &&
+            (!expiryDate || currentDate <= expiryDate)
+          );
+        });
+
+        if (selectedGstRate) {
+          taxRate = selectedGstRate.GstRate; // Set the taxRate value
+          console.log("Tax Rate:", taxRate);
+
+          monthlyIncome = calculateIncomeAfterTaxes(
+            parseFloat(incomeAmountInput.value),
+            taxRate
+          ); // Calculate the income after taxes
+
+          console.log("Monthly Income (after taxes):", monthlyIncome);
+          calculateIncomeRemaining(); // Update the income remaining with the new tax rate and income after taxes
+        } else {
+          console.log("No GST rate found for the selected province.");
+        }
+      } else {
+        console.log("Province data not found in the API response.");
+      }
+    })
+    .catch((error) => {
+      console.log("Error:", error);
+    });
 }
 
 // Function to calculate the monthly gross income based on frequency
@@ -40,7 +99,6 @@ function calculateMonthlyGrossIncome(incomeAmount, incomeFrequency) {
   } else if (incomeFrequency === "weekly") {
     monthlyGrossIncome = (incomeAmount * 52) / 12;
   }
-
   return monthlyGrossIncome;
 }
 
@@ -156,14 +214,6 @@ function renderExpense(expense) {
 // Function to render a debt item
 function renderDebt(debt) {
   const listItem = document.createElement("li");
-  const itemContent = `
-    <span>Description: ${debt.description}</span>
-    <span>Amount: $${debt.amount.toFixed(2)}</span>
-    <span>Payoff Period: ${debt.payoffPeriod} months</span>
-    <span>Payment Frequency: ${debt.paymentFrequency}</span>
-    <span>Debt Payment Required: $${debt.debtPayment.toFixed(2)}</span>
-  `;
-  listItem.innerHTML = itemContent;
   listItem.textContent = `${debt.description}: $${debt.amount} (${debt.paymentFrequency} - ${debt.payoffPeriod} payments of ${debt.debtPayment})`;
   debtList.appendChild(listItem);
 }
