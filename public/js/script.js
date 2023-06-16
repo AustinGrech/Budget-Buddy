@@ -16,6 +16,9 @@ let monthlyIncome = 0;
 let expenses = [];
 let debts = [];
 let taxRate = 0; // Declare the taxRate variable
+document.addEventListener("DOMContentLoaded", function () {
+  loadDataFromLocalStorage();
+});
 
 // Event listeners
 incomeForm.addEventListener("submit", handleIncomeSubmit);
@@ -76,7 +79,8 @@ function handleIncomeSubmit(event) {
           ); // Calculate the income after taxes
 
           console.log("Monthly Income (after taxes):", monthlyIncome);
-          calculateIncomeRemaining(); // Update the income remaining with the new tax rate and income after taxes
+          calculateIncomeRemaining();
+          saveDataToLocalStorage(); // Update the income remaining with the new tax rate and income after taxes
         } else {
           console.log("No GST rate found for the selected province.");
         }
@@ -129,6 +133,7 @@ function handleExpenseSubmit(event) {
   expenses.push(expense);
   renderExpense(expense);
   calculateIncomeRemaining();
+  saveDataToLocalStorage();
   expenseForm.reset();
 }
 
@@ -159,6 +164,7 @@ function handleDebtSubmit(event) {
   debts.push(debt);
   renderDebt(debt);
   calculateIncomeRemaining();
+  saveDataToLocalStorage();
   debtForm.reset();
 }
 
@@ -217,4 +223,33 @@ function renderDebt(debt) {
   const listItem = document.createElement("li");
   listItem.textContent = `${debt.description}: $${debt.amount} (${debt.paymentFrequency} - ${debt.payoffPeriod} payments of ${debt.debtPayment})`;
   debtList.appendChild(listItem);
+
 }
+
+function saveDataToLocalStorage() {
+  localStorage.setItem("monthlyIncome", parseFloat(monthlyIncome));
+  localStorage.setItem("expenses", JSON.stringify(expenses));
+  localStorage.setItem("debts", JSON.stringify(debts));
+  localStorage.setItem("incomeRemaining", calculateIncomeRemaining());
+  localStorage.setItem("debtPaymentRequired", calculateTotalDebtPayment());
+}
+
+function loadDataFromLocalStorage() {
+  monthlyIncome = parseFloat(localStorage.getItem("monthlyIncome")) || 0;
+  expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+  debts = JSON.parse(localStorage.getItem("debts")) || [];
+  const incomeRemainingAmount =
+    parseFloat(localStorage.getItem("incomeRemaining")) || 0;
+  const debtPaymentRequired =
+    parseFloat(localStorage.getItem("debtPaymentRequired")) || 0;
+
+  incomeRemaining.textContent = `$${incomeRemainingAmount}`;
+  debtPaymentElement.textContent = `$${debtPaymentRequired}`;
+
+  calculateIncomeRemaining();
+  expenses.forEach(renderExpense);
+  debts.forEach(renderDebt);
+}
+
+
+
