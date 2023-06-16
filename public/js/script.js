@@ -1,5 +1,4 @@
 // Get DOM elements
-// Get DOM elements
 const incomeForm = document.querySelector("#income-input form");
 const incomeAmountInput = document.querySelector("#income-amount");
 const incomeFrequencySelect = document.querySelector("#income-frequency");
