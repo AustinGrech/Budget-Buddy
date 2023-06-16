@@ -11,7 +11,7 @@ Debt.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    description: {
+    category: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -32,7 +32,7 @@ Debt.init(
           isNumeric: true
           }
       },
-    frequency: {
+    paymentFrequency: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {

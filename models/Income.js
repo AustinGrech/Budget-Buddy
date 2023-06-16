@@ -19,14 +19,14 @@ Income.init(
     //     isAlpha: true
     //   }
     // },
-    frequency: {
+    paymentFrequency: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         isAlpha: true
       }
     },
-    incomeAmount: {
+    grossIncome: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
@@ -58,3 +58,5 @@ Income.init(
 );
 
 module.exports = Income;
+
+// if any errors make sure to match iwth JSON file to connect

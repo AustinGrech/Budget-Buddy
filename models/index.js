@@ -16,6 +16,9 @@ User.hasMany(Debt, {
     foreignKey: 'userId', 
     onDelete: 'CASCADE'
 });
+Debt.hasMany(Payments,{
+foreignKey: 'debtId'
+});
 
 Income.belongsTo(User, {
     foreignKey: 'userId'
@@ -25,6 +28,9 @@ Expense.belongsTo(User, {
 });
 Debt.belongsTo(User, {
     foreignKey: 'userId'
+});
+Payments.belongsTo(Debt,{
+    foreignKey: 'debtId'
 });
 
 

@@ -18,19 +18,19 @@ Expense.init(
         isAlpha: true
       }
     },
-    amountSpent: {
+    amount: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           isNumeric: true
         }
       }, 
-      date:{
+      initialExpenseDate:{
         type: DataTypes.DATE,
         allowNull: false,
         // NOT SURE IF SHOULD  VALIDATE FOR HOW IT IS FORMATTED WHEN IT COMES IN
       },
-    frequency: {
+    paymentFrequency: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
