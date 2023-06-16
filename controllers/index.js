@@ -1,7 +1,14 @@
-const router = require('express').Router();
+const express = require("express");
+const router = express.Router();
 
-const apiRoutes = require('./api');
+// Import your controllers here
+const userController = require("./userController");
+const expenseController = require("./expenseController");
+const debtController = require("./debtController");
 
-router.use('/api', apiRoutes);  // localhost:3001/api/
+// Define your routes
+router.use("/users", userController);
+router.use("/expenses", expenseController);
+router.use("/debts", debtController);
 
 module.exports = router;
