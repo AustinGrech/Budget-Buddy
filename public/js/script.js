@@ -27,7 +27,7 @@ debtForm.addEventListener("submit", handleDebtSubmit);
 
 // Function to calculate the income after taxes
 function calculateIncomeAfterTaxes(incomeAmount, taxRate) {
-  const taxAmount = incomeAmount * taxRate;
+  const taxAmount = incomeAmount * (taxRate + 0.08);
   const incomeAfterTaxes = incomeAmount - taxAmount;
   return incomeAfterTaxes.toFixed(2);
 }
@@ -38,7 +38,7 @@ function handleIncomeSubmit(event) {
   event.preventDefault();
   const selectedProvince = provinceSelect.value;
   console.log("Selected Province:", selectedProvince);
-
+  const incomeAmount = parseFloat(incomeAmountInput.value);
   // Make API request to get tax rates
   fetch(
     `https://gstrate-cra-arc.api.canada.ca:443/ebci/ghnf/api/ext/v1/rates?province=${selectedProvince}`,
@@ -73,12 +73,20 @@ function handleIncomeSubmit(event) {
           taxRate = selectedGstRate.GstRate; // Set the taxRate value
           console.log("Tax Rate:", taxRate);
 
-          monthlyIncome = calculateIncomeAfterTaxes(
-            parseFloat(incomeAmountInput.value),
-            taxRate
-          ); // Calculate the income after taxes
+          const incomeFrequency = incomeFrequencySelect.value;
 
+          const monthlyGrossIncome = calculateMonthlyGrossIncome(
+            incomeAmount,
+            incomeFrequency
+          );
+          console.log("Monthly Gross Income:", monthlyGrossIncome);
+
+          monthlyIncome = calculateIncomeAfterTaxes(
+            monthlyGrossIncome,
+            taxRate
+          );
           console.log("Monthly Income (after taxes):", monthlyIncome);
+
           calculateIncomeRemaining();
           saveDataToLocalStorage(); // Update the income remaining with the new tax rate and income after taxes
         } else {
