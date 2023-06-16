@@ -223,6 +223,7 @@ function renderDebt(debt) {
   const listItem = document.createElement("li");
   listItem.textContent = `${debt.description}: $${debt.amount} (${debt.paymentFrequency} - ${debt.payoffPeriod} payments of ${debt.debtPayment})`;
   debtList.appendChild(listItem);
+
 }
 
 function saveDataToLocalStorage() {
@@ -249,3 +250,6 @@ function loadDataFromLocalStorage() {
   expenses.forEach(renderExpense);
   debts.forEach(renderDebt);
 }
+
+
+
