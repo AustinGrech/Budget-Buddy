@@ -10,5 +10,6 @@ const debtController = require("./debtController");
 router.use("/users", userController);
 router.use("/expenses", expenseController);
 router.use("/debts", debtController);
+router.use("/user", userController);
 
 module.exports = router;
