@@ -22,35 +22,43 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
     
-          <ul class="nav navbar-nav navbar-right">
-            
-            <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li>{{#if logged_in}}
-        <a href="/index">profile</a> |
-        <button class="no-button" id="logout"><span class="glyphicon glyphicon-log-in"></span>logout</button>
-        {{else}}
-        <a href="/login"><span class="glyphicon glyphicon-log-in"></span>login</a>
-        {{/if}}</li>
-          </ul>
+         <ul class="nav navbar-nav navbar-right">
+          <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+  <li>
+    
+    {{#if logged_in}}
+      <a href="/index">profile</a> |
+      <button class="no-button" id="logout">
+        <span class="glyphicon glyphicon-log-in"></span>logout
+      </button>
+    {{else}}
+      <a href="/login">
+        <span class="glyphicon glyphicon-log-in"></span>login
+      </a>
+    {{/if}}
+  </li>
+</ul>
         </div>
       </div>
     </nav>
   </header>
-    <form class="form signup-form">
+    <form id="signup-form" class="form signup-form">
       <div class="container">
         <a href="/index"><h1>Sign Up for Budget Buddy</h1></a>
         <p>Please fill in this form to create an account.</p>
-
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Email" />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password:</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password must be over (8) Characters long"
+      />
+    </div>
         <p>
           By creating an account you agree to our
           <a href="#" style="color:dodgerblue">Terms & Privacy</a>.

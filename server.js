@@ -64,7 +64,7 @@ app.get("/expenses", (req, res) => {
 });
 
 app.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", { logged_in: req.session.loggedIn });
 });
 
 app.get("/login", (req, res) => {

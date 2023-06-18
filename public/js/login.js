@@ -7,7 +7,7 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     // Send a POST request to the API endpoint
-    const response = await fetch("/api/users/login", {
+    const response = await fetch("/api/user", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace("/profile");
+      document.location.replace("/expenses");
     } else {
       alert(response.statusText);
     }
@@ -25,31 +25,35 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const email = document.querySelector("#email-signup").value.trim();
-  const password = document.querySelector("#password-signup").value.trim();
+  const email = document.querySelector("#email").value.trim();
+  const password = document.querySelector("#password").value.trim();
 
   if (email && password) {
-    const response = await fetch("/api/users", {
+    const response = await fetch("/api/user", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.replace("/profile");
+      document.location.replace("/login");
     } else {
       alert(response.statusText);
     }
   }
 };
 
-document
-  .querySelector(".login-form")
-  .addEventListener("submit", loginFormHandler);
+// Event listener for login form
+const LoginFormHandler = document.querySelector(".login-form");
+if (LoginFormHandler) {
+  LoginFormHandler.addEventListener("submit", loginFormHandler);
+}
 
-document
-  .querySelector(".signup-form")
-  .addEventListener("submit", signupFormHandler);
+// Event listener for signup form
+const SignupFormHandler = document.querySelector(".signup-form");
+if (SignupFormHandler) {
+  SignupFormHandler.addEventListener("submit", signupFormHandler);
+}
 
 // // Handler function for tech talk login form submission
 // const TechTalkLoginFormHandler = async (event) => {
