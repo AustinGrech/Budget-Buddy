@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Debt = require("../models/Debt");
+const Debt = require("../../models/Debt");
 
 // Route: POST /debts
 router.post("/", async (req, res) => {
