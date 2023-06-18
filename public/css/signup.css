@@ -123,3 +123,11 @@ a {
   color: black;
   text-underline-offset: 10px;
 }
+
+.glyphicon-log-in {
+  margin-right: 5px;
+}
+
+#logout {
+  cursor: pointer;
+}

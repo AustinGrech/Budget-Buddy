@@ -33,7 +33,6 @@ header {
 }
 
 header h1 {
-  
   font-size: 24px;
 }
 
@@ -165,4 +164,12 @@ footer {
 a {
   color: white;
   text-decoration: none;
+}
+
+.glyphicon-log-in {
+  margin-right: 5px;
+}
+
+#logout {
+  cursor: pointer;
 }

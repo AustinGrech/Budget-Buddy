@@ -13,7 +13,7 @@ startButton.addEventListener("mouseout", (event) => {
 });
 
 startButton.addEventListener("click", (event) => {
-  window.location.href = "/expenses"; // href is clicking a link directly to the handlebars you created.
+  window.location.href = "/signup"; // href is clicking a link directly to the handlebars you created.
 });
 
 // add an event listent to the budget page when they submit a budget a window prompts to display number of saves left

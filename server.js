@@ -21,6 +21,7 @@ const sess = {
   store: new SequelizeStore({
     db: sequelize,
   }),
+  logged_in: false, // Add loggedIn property to track user authentication status
 };
 
 // Using session middleware with session object
@@ -60,15 +61,30 @@ app.get("/index", (req, res) => {
 });
 
 app.get("/expenses", (req, res) => {
-  res.render("expenses");
+  res.render("expenses", { logged_in: req.session.logged_in });
 });
 
 app.get("/signup", (req, res) => {
-  res.render("signup", { logged_in: req.session.loggedIn });
+  res.render("signup");
 });
 
 app.get("/login", (req, res) => {
   res.render("login");
+});
+
+app.get("/logout", (req, res) => {
+  // Set `loggedIn` to `false`
+  req.session.logged_in = false;
+
+  // Destroy the session
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+    }
+
+    // Redirect to the desired page after successful logout
+    res.redirect("index");
+  });
 });
 // Using routes from controller
 app.use(routes);
