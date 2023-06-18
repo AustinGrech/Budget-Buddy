@@ -260,3 +260,11 @@ footer a:hover {
   margin-top: 10px;
   font-size: 55px;
 }
+
+.glyphicon-log-in {
+  margin-right: 5px;
+}
+
+#logout {
+  cursor: pointer;
+}

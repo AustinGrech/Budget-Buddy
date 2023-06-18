@@ -8,7 +8,21 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
+   
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/expense.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <style>
       /* Your custom CSS styles here */
       
   blockquote {
@@ -18,11 +32,48 @@
   }
 
     </style>
-    <body>
+    
+    <title>Budget Buddy</title>
+  </head>
+  <body>
+    <header>
+    <nav class="navbar navbar-inverse navigationMenu">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a id= headTitle color class="navbar-brand" href="">Budget Buddy</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+    
+          <ul class="nav navbar-nav navbar-right">
+          <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+  <li>
+    {{#if logged_in}}
+      <a  id="logout">
+        <span class="glyphicon glyphicon-log-in"></span>logout
+      </a>
+    {{else}}
+      <a href="/login">
+        <span class="glyphicon glyphicon-log-in"></span>login
+      </a>
+    {{/if}}
+  </li>
+</ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <body>
         <main>
             {{{ body }}}
         </main>
 
     <script src="js/script.js"></script>
+  
   </body>
 </html>
+  

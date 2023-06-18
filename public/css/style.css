@@ -312,3 +312,7 @@ h3 {
 .glyphicon-log-in {
   margin-right: 5px;
 }
+
+#logout {
+  cursor: pointer;
+}
