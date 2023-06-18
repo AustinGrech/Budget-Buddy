@@ -196,8 +196,8 @@ function calculateIncomeRemaining() {
 
   const incomeRemainingAmount =
     monthlyIncome - totalExpenses - totalDebtPayment;
-  incomeRemaining.textContent = `$${incomeRemainingAmount}`;
-  debtPaymentElement.textContent = `$${totalDebtPayment}`;
+  incomeRemaining.textContent = `$${incomeRemainingAmount.toFixed(2)}`;
+  debtPaymentElement.textContent = `$${totalDebtPayment.toFixed(2)}`;
 }
 
 // Function to calculate the total expenses
@@ -249,8 +249,8 @@ function loadDataFromLocalStorage() {
   const debtPaymentRequired =
     parseFloat(localStorage.getItem("debtPaymentRequired")) || 0;
 
-  incomeRemaining.textContent = `$${incomeRemainingAmount}`;
-  debtPaymentElement.textContent = `$${debtPaymentRequired}`;
+  incomeRemaining.textContent = `$${incomeRemainingAmount.toFixed(2)}`;
+  debtPaymentElement.textContent = `$${debtPaymentRequired.toFixed(2)}`;
 
   calculateIncomeRemaining();
   expenses.forEach(renderExpense);
