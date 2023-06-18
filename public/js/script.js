@@ -1,12 +1,12 @@
 // Get DOM elements
-const incomeForm = document.querySelector("#income-input form");
+const incomeForm = document.querySelector("#income-form");
 const incomeAmountInput = document.querySelector("#income-amount");
 const incomeFrequencySelect = document.querySelector("#income-frequency");
 const incomeRemaining = document.querySelector("#income-remaining p");
 const monthlyIncomeInput = document.querySelector("#monthly-income");
-const expenseForm = document.querySelector("#expense-input form");
+const expenseForm = document.querySelector("#expense-form");
 const expenseList = document.querySelector("#expense-list ul");
-const debtForm = document.querySelector("#debt-input form");
+const debtForm = document.querySelector("#debt-form");
 const debtList = document.querySelector("#debt-list ul");
 const debtPaymentElement = document.querySelector("#debt-payment p");
 const provinceSelect = document.querySelector("#province");
@@ -15,9 +15,9 @@ let monthlyIncome = 0;
 let expenses = [];
 let debts = [];
 let taxRate = 0; // Declare the taxRate variable
-document.addEventListener("DOMContentLoaded", function () {
-  loadDataFromLocalStorage();
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   loadDataFromLocalStorage();
+// });
 
 // Event listeners
 incomeForm.addEventListener("submit", handleIncomeSubmit);
@@ -87,7 +87,7 @@ function handleIncomeSubmit(event) {
           console.log("Monthly Income (after taxes):", monthlyIncome);
 
           calculateIncomeRemaining();
-          saveDataToLocalStorage(); // Update the income remaining with the new tax rate and income after taxes
+          // saveDataToLocalStorage(); // Update the income remaining with the new tax rate and income after taxes
         } else {
           console.log("No GST rate found for the selected province.");
         }
@@ -140,7 +140,7 @@ function handleExpenseSubmit(event) {
   expenses.push(expense);
   renderExpense(expense);
   calculateIncomeRemaining();
-  saveDataToLocalStorage();
+  // saveDataToLocalStorage();
   expenseForm.reset();
 }
 
@@ -171,7 +171,7 @@ function handleDebtSubmit(event) {
   debts.push(debt);
   renderDebt(debt);
   calculateIncomeRemaining();
-  saveDataToLocalStorage();
+  // saveDataToLocalStorage();
   debtForm.reset();
 }
 
@@ -232,30 +232,29 @@ function renderDebt(debt) {
   debtList.appendChild(listItem);
 }
 
-function saveDataToLocalStorage() {
-  localStorage.setItem("monthlyIncome", parseFloat(monthlyIncome));
-  localStorage.setItem("expenses", JSON.stringify(expenses));
-  localStorage.setItem("debts", JSON.stringify(debts));
-  localStorage.setItem("incomeRemaining", calculateIncomeRemaining());
-  localStorage.setItem("debtPaymentRequired", calculateTotalDebtPayment());
-}
+// function saveDataToLocalStorage() {
+//   localStorage.setItem("monthlyIncome", parseFloat(monthlyIncome));
+//   localStorage.setItem("expenses", JSON.stringify(expenses));
+//   localStorage.setItem("debts", JSON.stringify(debts));
+//   localStorage.setItem("incomeRemaining", calculateIncomeRemaining());
+//   localStorage.setItem("debtPaymentRequired", calculateTotalDebtPayment());
+// }
 
-function loadDataFromLocalStorage() {
-  monthlyIncome = parseFloat(localStorage.getItem("monthlyIncome")) || 0;
-  expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-  debts = JSON.parse(localStorage.getItem("debts")) || [];
-  const incomeRemainingAmount =
-    parseFloat(localStorage.getItem("incomeRemaining")) || 0;
-  const debtPaymentRequired =
-    parseFloat(localStorage.getItem("debtPaymentRequired")) || 0;
+// function loadDataFromLocalStorage() {
+//   monthlyIncome = parseFloat(localStorage.getItem("monthlyIncome")) || 0;
+//   expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+//   debts = JSON.parse(localStorage.getItem("debts")) || [];
+//   const incomeRemainingAmount =
+//     parseFloat(localStorage.getItem("incomeRemaining")) || 0;
+//   const debtPaymentRequired =
+//     parseFloat(localStorage.getItem("debtPaymentRequired")) || 0;
 
-  incomeRemaining.textContent = `$${incomeRemainingAmount.toFixed(2)}`;
-  debtPaymentElement.textContent = `$${debtPaymentRequired.toFixed(2)}`;
+incomeRemaining.textContent = `$${incomeRemainingAmount.toFixed(2)}`;
+debtPaymentElement.textContent = `$${debtPaymentRequired.toFixed(2)}`;
 
-  calculateIncomeRemaining();
-  expenses.forEach(renderExpense);
-  debts.forEach(renderDebt);
-}
+calculateIncomeRemaining();
+expenses.forEach(renderExpense);
+debts.forEach(renderDebt);
 
 document.getElementById("clearData").addEventListener("click", function () {
   localStorage.clear();

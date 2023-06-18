@@ -1,5 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+const User = require("./User");
 
 class Debt extends Model {}
 
@@ -11,48 +12,46 @@ Debt.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    category: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isAlpha: true
-      }
     },
     debtAmount: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          isNumeric: true
-        }
-      }, 
-      payoffPeriod:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          isNumeric: true
-          }
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isNumeric: true,
       },
+    },
+    payoffPeriod: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isNumeric: true,
+      },
+    },
     paymentFrequency: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlpha: true
-      }
-    }, 
-    userId: {
-      type: DataTypes.INTEGER, 
+        isAlpha: true,
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
       references: {
-        model: 'user', 
-        key: 'id'
-      }
-    }
+        model: User, // Use the User model
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'debt',
+    tableName: "debt",
+    modelName: "Debt",
   }
 );
 

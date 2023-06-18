@@ -2,13 +2,21 @@ const express = require("express");
 const router = express.Router();
 const Expense = require("../../models/Expense");
 
-// Route: POST /expenses
-router.post("/expenses", async (req, res) => {
+// Route: POST /api/expenses
+router.post("/", async (req, res) => {
   try {
-    const { description, amount } = req.body;
-    const expense = await Expense.create({ description, amount });
-    res.status(201).json(expense);
+    const { category, amount, initialExpenseDate, paymentFrequency } = req.body;
+    const newExpense = await Expense.create({
+      category,
+      amount,
+      initialExpenseDate,
+      paymentFrequency,
+      user_id: req.session.user_id,
+      // Additional properties related to the user or any other necessary fields
+    });
+    res.status(201).json(newExpense);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Failed to create expense" });
   }
 });
@@ -32,11 +40,13 @@ router.get("/:id", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { description, amount } = req.body;
+    const { category, amount, initialExpenseDate, paymentFrequency } = req.body;
     const expense = await Expense.findByPk(id);
     if (expense) {
-      expense.description = description;
+      expense.category = category;
       expense.amount = amount;
+      expense.initialExpenseDate = initialExpenseDate;
+      expense.paymentFrequency = paymentFrequency;
       await expense.save();
       res.json(expense);
     } else {

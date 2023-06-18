@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const User = require("./User"); // Import the User model
 
 class Income extends Model {}
 
@@ -11,16 +12,6 @@ Income.init(
       primaryKey: true,
       autoIncrement: true,
     },
-
-    // // DONT HAVE SOURCE YET, but I think it'd be cool if we could specify where we got the money from
-    // source: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   validate: {
-    //     isAlpha: true
-    //   }
-    // },
-
     paymentFrequency: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -42,10 +33,10 @@ Income.init(
         isAlpha: true,
       },
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
+        model: User, // Use the User model
         key: "id",
       },
     },
@@ -55,10 +46,9 @@ Income.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "income",
+    tableName: "income",
+    modelName: "Income",
   }
 );
 
 module.exports = Income;
-
-// if any errors make sure to match iwth JSON file to connect

@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../../models/User");
-// localhost:3001/api/users
+const Income = require("../../models/Income");
+const Expense = require("../../models/Expense");
+const Debt = require("../../models/Debt");
 
+// Create new user
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -18,7 +21,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// CREATE new user (Signup)
+// User signup
 router.post("/signup", async (req, res) => {
   try {
     const userData = await User.create({
@@ -26,7 +29,6 @@ router.post("/signup", async (req, res) => {
       password: req.body.password,
     });
 
-    // are signed in now
     req.session.save(() => {
       req.session.logged_in = true;
       res.status(200).json(userData);
@@ -37,7 +39,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-// Login
+// User login
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -51,7 +53,6 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    // email in db, validate password entered to password in database:
     const validatePassword = await userData.checkPassword(req.body.password);
 
     if (!validatePassword) {
@@ -59,18 +60,43 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    // everything is good! be loggedin now:
+    const userIncome = await Income.findAll({
+      where: {
+        user_id: userData.id,
+      },
+    });
+
+    const userExpenses = await Expense.findAll({
+      where: {
+        user_id: userData.id,
+      },
+    });
+
+    const userDebts = await Debt.findAll({
+      where: {
+        user_id: userData.id,
+      },
+    });
+
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      res.status(200).json({ user: userData, message: "You are logged in!" });
+
+      res.status(200).json({
+        user: userData,
+        income: userIncome,
+        expenses: userExpenses,
+        debts: userDebts,
+        message: "You are logged in!",
+      });
     });
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
   }
 });
-// Logout - only available if already loggedIn!
+
+// User logout
 router.post("/logout", (req, res) => {
   if (req.session.logged_in === true) {
     req.session.destroy(() => {
@@ -80,4 +106,5 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
+
 module.exports = router;
