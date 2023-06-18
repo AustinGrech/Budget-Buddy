@@ -14,40 +14,32 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-inverse navigationMenu">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button
-              type="button"
-              class="navbar-toggle"
-              data-toggle="collapse"
-              data-target="#myNavbar"
-            >
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a id="headTitle" color class="navbar-brand" href="/index"
-              >Budget Buddy</a
-            >
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a href="/signup"
-                  ><span class="glyphicon glyphicon-user"></span> Sign Up</a
-                >
-              </li>
-              <li>
-                <a href="/login"
-                  ><span class="glyphicon glyphicon-log-in"></span> Login</a
-                >
-              </li>
-            </ul>
-          </div>
+    <nav class="navbar navbar-inverse navigationMenu">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a id= headTitle color class="navbar-brand" href="expenses">Budget Buddy</a>
         </div>
-      </nav>
-    </header>
+        <div class="collapse navbar-collapse" id="myNavbar">
+    
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li>{{#if logged_in}}
+        <a href="/index">profile</a> |
+        <button class="no-button" id="logout"><span class="glyphicon glyphicon-log-in"></span>logout</button>
+        {{else}}
+        <a href="/login"><span class="glyphicon glyphicon-log-in login"></span>login</a>
+        {{/if}}</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
     <main>
       <section id="income-input">

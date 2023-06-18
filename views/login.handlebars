@@ -5,40 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/signup.css" />
   </head>
   <body>
-    <form action="action_page.php">
-      <div class="container">
-        <a href="/index"><h1>Login to Budget Buddy</h1></a>
-        <p>
-          If you have already made an account login below or
-          <a href="/signup">signup now!</a>
-        </p>
-
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
-
-        <label for="psw"><b>Password</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="psw"
-          required
-        />
-
-        <label for="remember" id="remember">
-          <input type="checkbox" checked="checked" name="remember" />
-          Remember me
-        </label>
-
+     <header>
+    <nav class="navbar navbar-inverse navigationMenu">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a id= headTitle color class="navbar-brand" href="expenses">Budget Buddy</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+    
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li>{{#if logged_in}}
+        <a href="/index">profile</a> |
+        <button class="no-button" id="logout"><span class="glyphicon glyphicon-log-in"></span>logout</button>
+        {{else}}
+        <a href="/login"><span class="glyphicon glyphicon-log-in"></span>login</a>
+        {{/if}}</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+      <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
         <div class="clearfix">
           <a href="/index"
             ><button type="button" class="cancelbtn">Cancel</button></a
           >
-          <button type="submit" class="signupbtn">Login</button>
+
+        
+          <button class="signupbtn" type="submit">login</button>
+        </div>
+      
         </div>
       </div>
     </form>
   </body>
+  <script src="js/login.js"></script>
 </html>

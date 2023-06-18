@@ -308,3 +308,6 @@ h3 {
   box-shadow: inset;
 }
 /* Additional styles for expense list items and other elements can be added as needed */
+.login {
+  margin-right: 5px;
+}
