@@ -43,8 +43,8 @@ password VARCHAR
   description TEXT NOT NULL,
   debt_amount DECIMAL
       (10,2) NOT NULL, 
-  payoff_period DATE NOT NULL,
-  payment_frequency ENUM
+  payoff_period INT NOT NULL,
+  payment_debt_frequency ENUM
       ('monthly', 'weekly') NOT NULL,
   FOREIGN KEY
       (user_id) REFERENCES user
@@ -52,33 +52,19 @@ password VARCHAR
 );
 
 
-
-      CREATE TABLE payments
+      CREATE TABLE income
       (
         id INT NOT NULL
         AUTO_INCREMENT PRIMARY KEY,
- debt_id INT NOT NULL,
-amount DECIMAL
-        (10,2) NOT NULL,
-payment_date DATE,
-FOREIGN KEY
-        (debt_id) REFERENCES debt
-        (id)
-);
-
-        CREATE TABLE income
-        (
-          id INT NOT NULL
-          AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,
   gross_income DECIMAL
-          (10,2) NOT NULL,
+        (10,2) NOT NULL,
   payment_frequency ENUM
-          ('monthly', 'weekly', 'bi-weekly') NOT NULL,
+        ('monthly', 'weekly', 'biweekly') NOT NULL,
   province TEXT NOT NULL,
   FOREIGN KEY
-          (user_id) REFERENCES user
-          (id)
+        (user_id) REFERENCES user
+        (id)
 );
 
 
