@@ -38,19 +38,19 @@ Expense.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
-        model: "users",
+        model: User, // Use the User model
         key: "id",
       },
     },
   },
   {
     sequelize,
-    modelName: "Expense",
-    tableName: "expenses",
     timestamps: false,
+    freezeTableName: true,
     underscored: true,
+    tableName: "expenses",
+    modelName: "Expense",
   }
 );
 

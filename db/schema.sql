@@ -23,7 +23,7 @@ password VARCHAR
   (
     id INT NOT NULL
     AUTO_INCREMENT PRIMARY KEY,
-  user_id INT,
+  user_id INT NOT NULL,
   category TEXT NOT NULL,
   amount DECIMAL
     (10,2) NOT NULL,
@@ -39,7 +39,7 @@ password VARCHAR
     (
       id INT NOT NULL
       AUTO_INCREMENT PRIMARY KEY,
-  user_id INT,
+  user_id INT NOT NULL,
   description TEXT NOT NULL,
   debt_amount DECIMAL
       (10,2) NOT NULL, 

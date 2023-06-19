@@ -38,19 +38,19 @@ Debt.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
-        model: "users",
+        model: User, // Use the User model
         key: "id",
       },
     },
   },
   {
     sequelize,
-    modelName: "Debt",
-    tableName: "debt",
     timestamps: false,
+    freezeTableName: true,
     underscored: true,
+    tableName: "debt",
+    modelName: "Debt",
   }
 );
 module.exports = Debt;
