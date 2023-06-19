@@ -3,7 +3,6 @@ const sequelize = require("../config/connection");
 const User = require("./User");
 
 class Expense extends Model {}
-
 Expense.init(
   {
     id: {
@@ -20,18 +19,18 @@ Expense.init(
       },
     },
     amount: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       validate: {
         isNumeric: true,
       },
     },
-    initialExpenseDate: {
+    initial_expense_date: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    paymentFrequency: {
-      type: DataTypes.STRING,
+    payment_frequency: {
+      type: DataTypes.ENUM("monthly", "weekly"),
       allowNull: false,
       validate: {
         isAlpha: true,
@@ -39,19 +38,19 @@ Expense.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
-        model: User, // Use the User model
+        model: "users",
         key: "id",
       },
     },
   },
   {
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    tableName: "expenses",
     modelName: "Expense",
+    tableName: "expenses",
+    timestamps: false,
+    underscored: true,
   }
 );
 
