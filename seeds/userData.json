@@ -2,10 +2,12 @@
     { 
       "email": "starlord@example.com",
       "password": "password123"
+      
     },
     {
       "email": "gamora@example.com",
       "password": "password456"
+    
     },
     {
       "email": "rocket@example.com",

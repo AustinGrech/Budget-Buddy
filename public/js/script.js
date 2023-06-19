@@ -4,9 +4,9 @@ const incomeAmountInput = document.querySelector("#income-amount");
 const incomeFrequencySelect = document.querySelector("#income-frequency");
 const incomeRemaining = document.querySelector("#income-remaining p");
 const monthlyIncomeInput = document.querySelector("#monthly-income");
-const expenseForm = document.querySelector("#expense-form");
+const expenseForm = document.getElementById("expense-form");
 const expenseList = document.querySelector("#expense-list ul");
-const debtForm = document.querySelector("#debt-form");
+const debtForm = document.getElementById("debt-form");
 const debtList = document.querySelector("#debt-list ul");
 const debtPaymentElement = document.querySelector("#debt-payment p");
 const provinceSelect = document.querySelector("#province");
@@ -117,13 +117,13 @@ function calculateMonthlyGrossIncome(incomeAmount, incomeFrequency) {
 // Function to handle expense submission
 function handleExpenseSubmit(event) {
   event.preventDefault();
-  const expenseDate = document.querySelector("#expense-date").value;
+  const expenseDate = document.getElementById("expense-date").value;
   const expenseAmount = parseFloat(
-    document.querySelector("#expense-amount").value
+    document.getElementById("expense-amount").value
   );
-  const expenseCategory = document.querySelector("#expense-category").value;
+  const expenseCategory = document.getElementById("expense-category").value;
   const expenseFrequency = document.querySelector(
-    'input[name="expense-frequency"]:checked'
+    'input[name="paymentFrequency"]:checked'
   ).value;
 
   let modifiedExpenseAmount = expenseAmount;
@@ -147,11 +147,11 @@ function handleExpenseSubmit(event) {
 // Function to handle debt submission
 function handleDebtSubmit(event) {
   event.preventDefault();
-  const debtDescription = document.querySelector("#debt-description").value;
-  const debtAmount = parseFloat(document.querySelector("#debt-amount").value);
-  const payoffPeriod = parseInt(document.querySelector("#payoff-period").value);
+  const debtDescription = document.getElementById("debt-description").value;
+  const debtAmount = parseFloat(document.getElementById("debt-amount").value);
+  const payoffPeriod = parseInt(document.getElementById("payoff-period").value);
   const paymentFrequency = document.querySelector(
-    'input[name="payment-frequency"]:checked'
+    'input[name="paymentFrequency"]:checked'
   ).value;
 
   const modifiedDebtAmount = adjustDebtAmount(debtAmount, paymentFrequency);
@@ -171,7 +171,6 @@ function handleDebtSubmit(event) {
   debts.push(debt);
   renderDebt(debt);
   calculateIncomeRemaining();
-  // saveDataToLocalStorage();
   debtForm.reset();
 }
 

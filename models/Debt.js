@@ -30,7 +30,7 @@ Debt.init(
         isNumeric: true,
       },
     },
-    paymentFrequency: {
+    paymentDebtFrequency: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {

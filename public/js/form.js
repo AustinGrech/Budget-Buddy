@@ -57,7 +57,7 @@ expenseForm.addEventListener("submit", async (e) => {
   };
 
   try {
-    const response = await fetch("/api/expenses", {
+    const response = await fetch("/api/expense", {
       // Updated endpoint to "/api/expenses"
       method: "POST",
       headers: {
@@ -85,9 +85,9 @@ debtForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const description = document.getElementById("debt-description").value;
-  const debtAmount = parseINT(document.getElementById("debt-amount").value);
-  const payoffPeriod = document.getElementById("payoff-period").value;
-  const paymentFrequency = document.querySelector(
+  const debtAmount = parseFloat(document.getElementById("debt-amount").value);
+  const payoffPeriod = parseInt(document.getElementById("payoff-period").value);
+  const paymentDebtFrequency = document.querySelector(
     'input[name="payment-frequency"]:checked'
   ).value;
 
@@ -95,11 +95,11 @@ debtForm.addEventListener("submit", async (e) => {
     description,
     debtAmount,
     payoffPeriod,
-    paymentFrequency,
+    paymentDebtFrequency,
   };
 
   try {
-    const response = await fetch("/api/debts", {
+    const response = await fetch("/api/debt", {
       // Updated endpoint to "/api/debts"
       method: "POST",
       headers: {

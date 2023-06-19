@@ -1,38 +1,43 @@
 [
     {
+      "user_Id": 1,
       "description": "Credit Card Debt",
       "debtAmount": 5000,
       "payoffPeriod": 12,
-      "frequency": "Monthly",
-      "userId": 1
+      "paymentDebtfrequency": "Monthly"
+      
     },
     {
+      "user_Id": 2,
       "description": "Student Loan",
       "debtAmount": 10000,
       "payoffPeriod": 24,
-      "frequency": "Monthly",
-      "userId": 2
+      "paymentDebtfrequency": "Monthly"
+      
     },
     {
+      "user_Id": 3,
       "description": "Car Loan",
       "debtAmount": 20000,
       "payoffPeriod": 36,
-      "frequency": "Monthly",
-      "userId": 3
+      "paymentDebtfrequency": "Monthly"
+      
     },
     {
+      "user_Id": 4,
       "description": "Mortgage",
       "debtAmount": 250000,
       "payoffPeriod": 360,
-      "frequency": "Monthly",
-      "userId": 4
+      "frequency": "Monthly"
+      
     },
     {
+      "user_Id": 5,
       "description": "Personal Loan",
       "debtAmount": 5000,
       "payoffPeriod": 12,
-      "frequency": "Monthly",
-      "userId": 5
+      "paymentDebtfrequency": "Monthly"
+      
     }
   ]
   
