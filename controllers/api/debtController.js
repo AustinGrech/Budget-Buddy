@@ -5,14 +5,14 @@ const Debt = require("../../models/Debt");
 // Route: POST /api/debts
 router.post("/", async (req, res) => {
   try {
-    const { description, debtAmount, payoffPeriod, paymentFrequency } =
+    const { description, debtAmount, payoffPeriod, paymentDebtFrequency } =
       req.body;
     const newDebt = await Debt.create({
       description,
       debtAmount,
       payoffPeriod,
-      paymentFrequency,
-      user_id: req.session.user_id,
+      paymentDebtFrequency,
+
       // Additional properties related to the user or any other necessary fields
     });
     res.status(201).json(newDebt);
@@ -40,14 +40,14 @@ router.get("/:id", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { description, debtAmount, payoffPeriod, paymentFrequency } =
+    const { description, debtAmount, payoffPeriod, paymentDebtFrequency } =
       req.body;
     const debt = await Debt.findByPk(id);
     if (debt) {
       debt.description = description;
       debt.debtAmount = debtAmount;
       debt.payoffPeriod = payoffPeriod;
-      debt.paymentFrequency = paymentFrequency;
+      debt.paymentFrequency = paymentDebtFrequency;
       await debt.save();
       res.json(debt);
     } else {

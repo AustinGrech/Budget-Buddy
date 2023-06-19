@@ -4,35 +4,35 @@
       "amountSpent": 200,
       "date": "2023-06-01",
       "frequency": "Weekly",
-      "userId": 1
+      "user_Id": 1
     },
     {
       "category": "Entertainment",
       "amountSpent": 100,
       "date": "2023-06-02",
       "frequency": "Monthly",
-      "userId": 2
+      "user_Id": 2
     },
     {
       "category": "Housing",
       "amountSpent": 800,
       "date": "2023-06-03",
       "frequency": "Monthly",
-      "userId": 3
+      "user_Id": 3
     },
     {
       "category": "Transportation",
       "amountSpent": 300,
       "date": "2023-06-04",
       "frequency": "Weekly",
-      "userId": 4
+      "user_Id": 4
     },
     {
       "category": "Utilities",
       "amountSpent": 150,
       "date": "2023-06-05",
       "frequency": "Monthly",
-      "userId": 5
+      "user_Id": 5
     }
   ]
   

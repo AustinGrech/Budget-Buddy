@@ -3,31 +3,31 @@
       "frequency": "Monthly",
       "incomeAmount": 5000,
       "province": "California",
-      "userId": 1
+      "user_Id": 1
     },
     {
       "frequency": "Weekly",
       "incomeAmount": 2000,
       "province": "New York",
-      "userId": 2
+      "user_Id": 2
     },
     {
       "frequency": "Monthly",
       "incomeAmount": 3000,
       "province": "Texas",
-      "userId": 3
+      "user_Id": 3
     },
     {
       "frequency": "Monthly",
       "incomeAmount": 4000,
       "province": "Florida",
-      "userId": 4
+      "user_Id": 4
     },
     {
       "frequency": "Bi-Weekly",
       "incomeAmount": 2500,
       "province": "California",
-      "userId": 5
+      "user_Id": 5
     }
   ]
   
