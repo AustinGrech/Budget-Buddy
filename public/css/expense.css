@@ -1,248 +1,270 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
 * {
-    color: black;
-    font-family: 'Permanent Marker', cursive;
+  color: black;
+  font-family: "Permanent Marker", cursive;
 }
 
 body {
- 
-    font-family: 'Permanent Marker', cursive;
-    margin: 0;
-    padding: 0;
-  }
+  font-family: "Permanent Marker", cursive;
+  margin: 0;
+  padding: 0;
+}
 
-  
-  
-.a.navbar-brand{
-    font-size: 50px;
-    margin-top: 5px;
-  }
-  
- a {
-    color: black;
-  }
+.a.navbar-brand {
+  font-size: 50px;
+  margin-top: 5px;
+}
 
-  a:hover {
-    text-decoration: none;
-  }
-  
-  #header1 {
-    
-    font-size: 18px;
-    background-color: lightgoldenrodyellow;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    box-shadow: inset;
-    color: black;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  #header2 {
-    font-family: 'Permanent Marker', cursive;
-    background-color: lightyellow;
-    color: black;
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 4px solid black;
-    border-radius: 5px;
-  }
+a {
+  color: black;
+}
 
-  #header2 a:hover {
-    color: black !important;
-    text-decoration: none !important;
-    outline: none !important;
-    background-color: lightyellow !important;
-  }
-  
-  
-  #header2 a:hover,
-  #header2 a:focus {
-    text-decoration: none;
-    border: none;
-  }
-  
-  h1 {
-    margin: 0;
-  }
-  
-  main {
-    font-family: 'Permanent Marker', cursive;
-    padding: 20px;
-  }
-  
-  section {
-    margin-bottom: 30px;
-  }
-  
-  form div {
-    margin-bottom: 10px;
-  }
-  
-  label {
-    display: block;
-  }
-  
-  #container {
-    display: flex;
-    justify-content: space-between;
-    width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  #income-input {
-    width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  #debt-input {
-    width: 400px;
-  }
-  #expense-input {
-    width: 400px;
-  }
-  
-  select {
-    width: 420px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  #province {
-    width: 920px;
-  }
-  input,
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: lightyellow;
-    color: black;
-    border: 1px solid black;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 200px;
-  }
-  
-  ul {
-    list-style-type: number;
-    padding: 0;
-  }
-  
-  footer {
-    background-color: lightyellow;
-    color: black;
-    text-align: center;
-    padding: 10px;
-  }
-  
-  /* Additional Styles */
-  
-  #income-remaining {
-    background-color: lightyellow;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  #income-remaining h3 {
-    margin-top: 0;
-  }
-  
-  #income-remaining p {
-    font-size: 24px;
-  }
-  
-  #expenses-chart {
-    height: 300px;
-    background-color: #f1f1f1;
-  }
-  
-  #income-frequency {
-    width: 921px;
-  }
-  
-  #income-amount {
-    width: 900px;
-  }
-  
-  #payment-frequent {
-    display: flex;
-    align-items: center;
-  }
-  
-  #expense-frequent {
-    display: flex;
-    align-items: center;
-  }
-  
-  li {
-    padding-top: 10px;
-    margin-left: 20px;
-  }
-  
-  a {
-    color: black;
-    text-decoration: none;
-    font-size: 40px;
-  }
+a:hover {
+  text-decoration: none;
+}
 
+#header1 {
+  font-size: 18px;
+  background-color: lightgoldenrodyellow;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-shadow: inset;
+  color: black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+#header2 {
+  font-family: "Permanent Marker", cursive;
+  background-color: lightyellow;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 4px solid black;
+  border-radius: 5px;
+}
 
-  
+#header2 a:hover {
+  color: black !important;
+  text-decoration: none !important;
+  outline: none !important;
+  background-color: lightyellow !important;
+}
 
-  #budget-summary h2 {
-    text-align: center;
-  }
+#header2 a:hover,
+#header2 a:focus {
+  text-decoration: none;
+  border: none;
+}
 
-  #expense-list h2 {
-    text-align: center;
-    border-bottom: 2px solid black;
-  }
-  #debt-list h2 {
-    text-align: center;
-    border-bottom: 2px solid black;
-  }
+h1 {
+  margin: 0;
+}
 
-  
+main {
+  font-family: "Permanent Marker", cursive;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+}
+
+#container {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#income-input {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#debt-input {
+  width: 400px;
+}
+#expense-input {
+  width: 400px;
+}
+
+select {
+  width: 420px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#expense-category {
+  width: 400px;
+}
+
+#province {
+  width: 920px;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: lightyellow;
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 200px;
+}
+
+ul {
+  list-style-type: number;
+  padding: 0;
+}
+
+footer {
+  background-color: lightyellow;
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Additional Styles */
+
+#income-remaining {
+  background-color: lightyellow;
+  padding: 20px;
+  text-align: center;
+}
+
+#income-remaining h3 {
+  margin-top: 0;
+}
+
+#income-remaining p {
+  font-size: 24px;
+}
+
+#expenses-chart {
+  height: 300px;
+  background-color: #f1f1f1;
+}
+
+#income-frequency {
+  width: 920px;
+}
+
+#income-amount {
+  width: 920px;
+}
+
+#payment-frequent {
+  display: flex;
+  align-items: center;
+}
+
+#expense-frequent {
+  display: flex;
+  align-items: center;
+}
+
 li {
-    padding-top: 10px;
-    margin-left: 15px;
-  }
- 
-  #header2 a {
-    color: black;
-    
-  }
-  
-  #header2 a:hover {
-    text-decoration: none;
-    
-  }
+  padding-top: 10px;
+  margin-left: 20px;
+}
 
-  #header2 a:focus {
-    outline: lightyellow !important;
-  }
-  
-  footer a {
-    color: black;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    color: black;
-    text-decoration: none;
-  }
+a {
+  color: black;
+  text-decoration: none;
+  font-size: 40px;
+}
 
-  
-  /* Additional styles for expense list items and other elements can be added as needed */
-  
+#budget-summary h2 {
+  text-align: center;
+}
+
+#expense-list h2 {
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+#debt-list h2 {
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+li {
+  padding-top: 10px;
+  margin-left: 15px;
+}
+
+#header2 a {
+  color: black;
+}
+
+#header2 a:hover {
+  text-decoration: none;
+}
+
+#header2 a:focus {
+  outline: lightyellow !important;
+}
+
+footer a {
+  color: black;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+/* Additional styles for expense list items and other elements can be added as needed */
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .active > a:hover {
+  background-color: rgb(10, 167, 175) !important;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: black !important;
+  font-size: 20px;
+}
+.navbar-inverse .navbar-toggle {
+  border: 2px solid rgb(10, 167, 175) !important;
+}
+.navigationMenu {
+  color: black;
+  font-family: "Permanent Marker";
+  background-color: lightgoldenrodyellow !important;
+}
+
+#headTitle {
+  color: black;
+  margin-top: 10px;
+  font-size: 55px;
+}
+
+.glyphicon-log-in {
+  margin-right: 5px;
+}
+
+#logout {
+  cursor: pointer;
+}

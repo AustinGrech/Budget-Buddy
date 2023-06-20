@@ -1,8 +1,8 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+const User = require("./User");
 
 class Expense extends Model {}
-
 Expense.init(
   {
     id: {
@@ -15,42 +15,42 @@ Expense.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlpha: true
-      }
-    },
-    amountSpent: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          isNumeric: true
-        }
-      }, 
-      date:{
-        type: DataTypes.DATE,
-        allowNull: false,
-        // NOT SURE IF SHOULD  VALIDATE FOR HOW IT IS FORMATTED WHEN IT COMES IN
+        isAlpha: true,
       },
-    frequency: {
-      type: DataTypes.STRING,
+    },
+    amount: {
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       validate: {
-        isAlpha: true
-      }
-    }, 
-    userId: {
-      type: DataTypes.INTEGER, 
+        isNumeric: true,
+      },
+    },
+    initial_expense_date: { // the server expects this exact key words put inot our models or it will not read
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    payment_frequency: {
+      type: DataTypes.ENUM("monthly", "weekly"),
+      allowNull: false,
+      validate: {
+        isAlpha: true,
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
       references: {
-        model: 'user', 
-        key: 'id'
-      }
-    }
+        model: User, // Use the User model
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'expense',
+    tableName: "expenses",
+    modelName: "Expense",
   }
 );
 

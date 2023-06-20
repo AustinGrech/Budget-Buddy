@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+* {
+  font-family: "Permanent Marker", cursive;
+}
+
+body {
+  text-align: center;
+  /* font-size: 22px; */
+  /* color:rgb(214, 51, 132); */
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: center;
+  opacity: 0.93.5;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0)
+    ),
+    url("../Images/How-Does-Budgeting-Help-You-Save-Money.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 110% auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: 60px;
+}
+
+p {
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  padding: 5px;
+  width: 500px;
+  font-size: 30px;
+  background-color: lightyellow;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  box-shadow: inset;
+  border: 2px solid black;
+  border-radius: 5px;
+  border-width: 6.5px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#remember {
+  width: 20%;
+  padding: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+input,
+textarea {
+  width: 30%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+b {
+  font-size: 25px;
+}
+
+button {
+  color: black;
+  background-color: lightgoldenrodyellow;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-shadow: inset;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.signupbtn {
+  width: 150px;
+  height: 75px;
+  padding: 5px;
+  margin-left: 40px;
+}
+
+.cancelbtn {
+  width: 150px;
+  height: 75px;
+  padding: 5px;
+}
+
+ul {
+  list-style-type: number;
+  padding: 0;
+}
+
+footer {
+  margin-top: 10%;
+  background-color: lightyellow;
+  border: 8px solid black;
+  border-radius: 5px;
+  border-width: 6.5px;
+  box-shadow: 5px 5px 5px 5px black;
+  width: 27.5vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+
+a {
+  color: black;
+  text-underline-offset: 10px;
+}
+
+.glyphicon-log-in {
+  margin-right: 5px;
+}
+
+#logout {
+  cursor: pointer;
+}

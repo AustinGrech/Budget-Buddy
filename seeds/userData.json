@@ -1,26 +1,23 @@
 [
-    {
-      "name": "Peter Quill",
+    { 
       "email": "starlord@example.com",
       "password": "password123"
+      
     },
     {
-      "name": "Gamora",
       "email": "gamora@example.com",
       "password": "password456"
+    
     },
     {
-      "name": "Rocket",
       "email": "rocket@example.com",
       "password": "password789"
     },
     {
-      "name": "Groot",
       "email": "groot@example.com",
       "password": "passwordabc"
     },
     {
-      "name": "Drax",
       "email": "drax@example.com",
       "password": "passworddef"
     }
