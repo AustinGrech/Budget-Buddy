@@ -6,11 +6,16 @@ const Expense = require("../../models/Expense");
 router.post("/", async (req, res) => {
   try {
     const { category, amount, initialExpenseDate, paymentFrequency } = req.body;
+
+    const payment_frequency = paymentFrequency;
+    const initial_expense_date = initialExpenseDate;
+
+    console.log(category, amount, initialExpenseDate, paymentFrequency);
     const newExpense = await Expense.create({
       category,
       amount,
-      initialExpenseDate,
-      paymentFrequency,
+      initial_expense_date,
+      payment_frequency,
 
       // Additional properties related to the user or any other necessary fields
     });

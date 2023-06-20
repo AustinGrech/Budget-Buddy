@@ -7,11 +7,14 @@ router.post("/", async (req, res) => {
   try {
     const { description, debtAmount, payoffPeriod, paymentDebtFrequency } =
       req.body;
+    const debt_amount = debtAmount;
+    const payoff_period = payoffPeriod;
+    const payment_debt_frequency = paymentDebtFrequency; // this is a quick fix, the real fix is to change the words being sent to the backend to match the model correctly
     const newDebt = await Debt.create({
       description,
-      debtAmount,
-      payoffPeriod,
-      paymentDebtFrequency,
+      debt_amount,
+      payoff_period,
+      payment_debt_frequency,
 
       // Additional properties related to the user or any other necessary fields
     });
@@ -47,7 +50,7 @@ router.put("/:id", async (req, res) => {
       debt.description = description;
       debt.debtAmount = debtAmount;
       debt.payoffPeriod = payoffPeriod;
-      debt.paymentFrequency = paymentDebtFrequency;
+      debt.paymentDebtFrequency = paymentDebtFrequency;
       await debt.save();
       res.json(debt);
     } else {

@@ -26,6 +26,7 @@ Expense.init(
       },
     },
     initial_expense_date: {
+      // the server expects this exact key words put inot our models or it will not read
       type: DataTypes.DATE,
       allowNull: false,
     },

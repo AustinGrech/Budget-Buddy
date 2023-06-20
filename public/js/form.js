@@ -14,6 +14,8 @@ incomeForm.addEventListener("submit", async (e) => {
     province,
   };
 
+  // the expense debt and monthly income need to send the correct user_id of whoever is logged in so that the data send them the correct data / this has to be done 1st before it can render the data for this
+  // try to convey the exact process of the code for every individual that hasnt worked on the code. Be sure to make points indicating EXAMPLE this does this and this does that. get expenses by x and x is the ID you want to look up
   try {
     const response = await fetch("/api/income", {
       // Updated endpoint to "/api/income"
@@ -49,6 +51,7 @@ expenseForm.addEventListener("submit", async (e) => {
     'input[name="expense-frequency"]:checked'
   ).value;
 
+  // <input type="radio" id="monthly-payment" name="paymentFrequency" value="monthly" checked="">
   const expenseData = {
     category,
     amount,
@@ -88,7 +91,7 @@ debtForm.addEventListener("submit", async (e) => {
   const debtAmount = parseFloat(document.getElementById("debt-amount").value);
   const payoffPeriod = parseInt(document.getElementById("payoff-period").value);
   const paymentDebtFrequency = document.querySelector(
-    'input[name="payment-frequency"]:checked'
+    'input[name="paymentDebtFrequency"]:checked' //paymentDebtFrequency must be correct syntax just like the server
   ).value;
 
   const debtData = {
