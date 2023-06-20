@@ -15,6 +15,7 @@ router.post("/", async (req, res) => {
       debt_amount,
       payoff_period,
       payment_debt_frequency,
+      user_id: req.session.user_id,
 
       // Additional properties related to the user or any other necessary fields
     });
