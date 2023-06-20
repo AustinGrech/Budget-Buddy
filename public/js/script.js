@@ -32,7 +32,6 @@ function calculateIncomeAfterTaxes(incomeAmount, taxRate) {
 }
 
 // Function to handle income submission
-// Function to handle income submission
 function handleIncomeSubmit(event) {
   event.preventDefault();
   const selectedProvince = provinceSelect.value;
@@ -123,7 +122,7 @@ function handleExpenseSubmit(event) {
   );
   const expenseCategory = document.getElementById("expense-category").value;
   const expenseFrequency = document.querySelector(
-    'input[name="paymentFrequency"]:checked'
+    'input[name="expense-frequency"]:checked'
   ).value;
 
   let modifiedExpenseAmount = expenseAmount;
@@ -151,7 +150,7 @@ function handleDebtSubmit(event) {
   const debtAmount = parseFloat(document.getElementById("debt-amount").value);
   const payoffPeriod = parseInt(document.getElementById("payoff-period").value);
   const paymentFrequency = document.querySelector(
-    'input[name="paymentFrequency"]:checked'
+    'input[name="paymentDebtFrequency"]:checked'
   ).value;
 
   const modifiedDebtAmount = adjustDebtAmount(debtAmount, paymentFrequency);
@@ -255,7 +254,7 @@ calculateIncomeRemaining();
 expenses.forEach(renderExpense);
 debts.forEach(renderDebt);
 
-document.getElementById("clearData").addEventListener("click", function () {
-  localStorage.clear();
-  location.reload();
-});
+// document.getElementById("clearData").addEventListener("click", function () {
+//   localStorage.clear();
+//   location.reload();
+// });

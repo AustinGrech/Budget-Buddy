@@ -14,9 +14,6 @@ Expense.init(
     category: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isAlpha: true,
-      },
     },
     amount: {
       type: DataTypes.DECIMAL(10, 2),
